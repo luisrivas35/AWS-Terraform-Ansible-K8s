@@ -78,19 +78,19 @@ resource "aws_security_group" "devops_sg" {
 }
 
 
-resource "aws_instance" "my-machine" {
+resource "aws_instance" "server" {
   # Creates four identical aws ec2 instances
   count = 3
 
   # All four instances will have the same ami and instance_type
   ami           = lookup(var.ec2_ami, var.region)
-  key_name = "devops"
+  key_name = "clase_key"
   instance_type = var.instance_type # 
   vpc_security_group_ids = [aws_security_group.devops_sg.id]
   tags = {
     # The count.index allows you to launch a resource 
     # starting with the distinct index number 0 and corresponding to this instance.
-    Name = "my-machine-${count.index}"
+    Name = "server-${count.index}"
   }
 }
 

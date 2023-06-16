@@ -39,3 +39,9 @@ node_modules/
 /bin/
 /target/
 javawebapp-deployment.yml
+
+# ignore .exe files,
+*.exe
+/terraform/.terraform/providers/
+#keys
+*.pem
